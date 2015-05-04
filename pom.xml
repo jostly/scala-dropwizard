@@ -116,6 +116,7 @@
                                 <arg>-dependencyfile</arg>
                                 <arg>${project.build.directory}/.scala_dependencies</arg>
                                 <arg>-Xcheckinit</arg>
+                                <arg>-feature</arg>
                             </args>
                         </configuration>
                     </execution>

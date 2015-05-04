@@ -2,7 +2,7 @@ package example.application
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature._
-import example.application.resource.{BasicResource, OptionResource, JsonResource}
+import example.application.resource.{CollectionResource, BasicResource, OptionResource, JsonResource}
 import io.dropwizard.Configuration
 import io.dropwizard.setup.{Bootstrap, Environment}
 import net.badgerclaw.dropwizard.ScalaApplication
@@ -10,9 +10,10 @@ import net.badgerclaw.dropwizard.bundle.ScalaBundle
 import org.slf4j.{Logger, LoggerFactory}
 
 class ExampleApplication extends ScalaApplication[Configuration] {
-  val jsonResource = new JsonResource()
+  val jsonResource = new JsonResource
   val optionResource = new OptionResource
   val basicResource = new BasicResource
+  val collectionResource = new CollectionResource
 
   override def getName = "ExampleApplication"
 
@@ -28,6 +29,7 @@ class ExampleApplication extends ScalaApplication[Configuration] {
     environment.jersey.register(basicResource)
     environment.jersey.register(optionResource)
     environment.jersey.register(jsonResource)
+    environment.jersey.register(collectionResource)
     logger.info("ProductCatalogApplication started!")
   }
 

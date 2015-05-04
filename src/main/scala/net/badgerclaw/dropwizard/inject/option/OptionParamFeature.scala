@@ -4,7 +4,7 @@ import javax.ws.rs.core.{Feature, FeatureContext}
 
 class OptionParamFeature extends Feature {
   override def configure(context: FeatureContext): Boolean = {
-    context.register(new OptionParamBinder, 100)
+    context.register(new OptionParamBinder, 0)
     true
   }
 }

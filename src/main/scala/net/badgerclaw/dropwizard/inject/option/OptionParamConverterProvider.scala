@@ -9,6 +9,7 @@ import org.glassfish.hk2.api.ServiceLocator
 import org.glassfish.jersey.internal.inject.Providers
 import org.glassfish.jersey.internal.util.ReflectionHelper
 import org.glassfish.jersey.internal.util.collection.ClassTypePair
+import scala.collection.JavaConversions._
 
 @Singleton
 class OptionParamConverterProvider @Inject()(locator: ServiceLocator)
@@ -33,7 +34,6 @@ extends ParamConverterProvider {
           }
         }
       } else {
-        import scala.collection.JavaConversions._
 
         val converterProviders =
           asScalaSet(Providers.getProviders(locator, classOf[ParamConverterProvider]))
